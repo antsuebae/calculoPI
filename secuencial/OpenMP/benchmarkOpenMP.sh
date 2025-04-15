@@ -3,7 +3,7 @@
 # Archivos
 SOURCE="pi_secuencial_OpenMP.c"
 EXEC="pi_secuencial_OpenMP"
-OUTPUT="resultados_pi.csv"
+OUTPUT="resultados_OpenMP.csv"
 
 # Compilación
 echo "Compilando $SOURCE..."
