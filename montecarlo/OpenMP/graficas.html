@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Resultados Monte Carlo - OpenMP</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 2rem;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+        h1 {
+            text-align: center;
+        }
+        .grafica {
+            margin-bottom: 3rem;
+            text-align: center;
+        }
+        img {
+            max-width: 90%;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        .descripcion {
+            font-style: italic;
+            margin-top: 0.5rem;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Visualización de Resultados - Monte Carlo con OpenMP</h1>
+
+    <div class="grafica">
+        <h2>1. Speedup vs Número de Hilos</h2>
+        <img src="graficasOpenMP/speedup_vs_hilos.png" alt="Speedup vs Hilos">
+        <div class="descripcion">Comparación del speedup obtenido al aumentar el número de hilos, para distintos tamaños de muestra.</div>
+    </div>
+
+    <div class="grafica">
+        <h2>2. Tiempo Paralelo vs Número de Muestras</h2>
+        <img src="graficasOpenMP/tiempo_vs_muestras.png" alt="Tiempo vs Muestras">
+        <div class="descripcion">Tiempo de ejecución paralela en función del número de muestras, usando diferentes cantidades de hilos.</div>
+    </div>
+
+    <div class="grafica">
+        <h2>3. Error Absoluto en π vs Número de Muestras</h2>
+        <img src="graficasOpenMP/error_pi_vs_muestras.png" alt="Error vs Muestras">
+        <div class="descripcion">Precisión del valor estimado de π a medida que aumentan las muestras, diferenciando por hilos.</div>
+    </div>
+
+</body>
+</html>
