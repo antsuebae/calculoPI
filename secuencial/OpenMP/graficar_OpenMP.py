@@ -16,6 +16,9 @@ df["tiempo_paralelo"] = df["tiempo_paralelo"].astype(float)
 df["speedup"] = df["speedup"].astype(float)
 df["diferencia_pi"] = df["diferencia_pi"].astype(float)
 
+# Lista fija de número de hilos usados
+hilos_validos = sorted(df["hilos"].unique())
+
 # ================================
 # 1. Speedup vs. hilos por cantidad de pasos
 # ================================
@@ -26,6 +29,7 @@ for pasos in sorted(df["pasos"].unique()):
 plt.title("Speedup vs Número de Hilos")
 plt.xlabel("Número de hilos")
 plt.ylabel("Speedup")
+plt.xticks(hilos_validos)  # <-- aquí forzamos que solo aparezcan tus hilos válidos
 plt.legend()
 plt.grid(True)
 plt.savefig(f"{output_dir}/speedup_vs_hilos.png")
@@ -34,7 +38,7 @@ plt.clf()
 # ================================
 # 2. Tiempo paralelo vs pasos por número de hilos
 # ================================
-for hilos in sorted(df["hilos"].unique()):
+for hilos in hilos_validos:
     subset = df[df["hilos"] == hilos]
     plt.plot(subset["pasos"], subset["tiempo_paralelo"], marker="s", label=f"{hilos} hilos")
 
@@ -51,7 +55,7 @@ plt.clf()
 # ================================
 # 3. Error absoluto (diferencia en π) vs pasos
 # ================================
-for hilos in sorted(df["hilos"].unique()):
+for hilos in hilos_validos:
     subset = df[df["hilos"] == hilos]
     plt.plot(subset["pasos"], subset["diferencia_pi"], marker="^", label=f"{hilos} hilos")
 
