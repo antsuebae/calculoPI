@@ -2,46 +2,58 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Resultados Monte Carlo - MPI + OpenMP</title>
+    <title>Resultados Secuenciales</title>
     <style>
         body {
             font-family: Arial, sans-serif;
-            margin: 2rem;
-            background-color: #f9f9f9;
+            background-color: #f4f4f9;
             color: #333;
+            margin: 0;
+            padding: 2rem;
         }
+
         h1 {
             text-align: center;
-            color: #2c3e50;
+            margin-bottom: 2rem;
         }
-        .boton {
-            background-color: #4CAF50;
-            border: none;
-            color: white;
-            padding: 15px 32px;
+
+        .grafica {
+            margin-bottom: 2rem;
             text-align: center;
-            text-decoration: none;
-            display: inline-block;
-            font-size: 16px;
-            margin: 4px 2px;
-            cursor: pointer;
-            border-radius: 8px;
         }
-        .boton:hover {
-            background-color: #45a049;
+
+        .descripcion {
+            font-style: italic;
+            color: #666;
+            margin-top: 0.5rem;
+        }
+
+        .back-button {
+            display: inline-block;
+            padding: 0.6rem 1.2rem;
+            background-color: #3498db;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: bold;
+            margin-top: 2rem;
+        }
+
+        .back-button:hover {
+            background-color: #2980b9;
         }
     </style>
 </head>
 <body>
+    <h1>Resultados Secuenciales</h1>
 
-    <h1>Selecciona el Conjunto de Resultados</h1>
-
-    <div style="text-align: center;">
-        <button class="boton" onclick="window.location.href='MPI/graficas.html'">Ver Gráficas Secuencial MPI</button>
-        <button class="boton" onclick="window.location.href='OpenMP/graficas.html'">Ver Gráficas Secuencial OpenMP</button>
-        <button class="boton" onclick="window.location.href='OpenMP+MPI/graficas.html'">Ver Gráficas Secuencial OpenMP+MPI</button>
+    <div class="grafica">
+        <h2>Ver Gráficas de Secuencial</h2>
+        <a href="OpenMP/graficas.html" class="back-button">OpenMP</a>
+        <a href="MPI/graficas.html" class="back-button">MPI</a>
+        <a href="OpenMP+MPI/graficas.html" class="back-button">OpenMP + MPI</a>
     </div>
-   
 
+    <a class="back-button" href="../index.html">Volver al Inicio</a>
 </body>
 </html>
