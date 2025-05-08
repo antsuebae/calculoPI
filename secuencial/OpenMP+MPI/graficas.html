@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Resultados Monte Carlo - MPI + OpenMP</title>
+    <title>Resultados Secuencial - MPI + OpenMP</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -46,62 +46,22 @@
 </head>
 <body>
 
-    <h1>Visualización de Resultados - Monte Carlo con MPI + OpenMP</h1>
-
-    <!-- Heatmap Tiempo Paralelo -->
-    <div class="grafica">
-        <h2>1. Heatmap de Tiempo Paralelo por Procesos y Hilos</h2>
-        <img src="graficasOpenMP+MPI/heatmap_tiempo_1000_pasos.png" alt="Heatmap Tiempo Paralelo - 1000 Pasos">
-        <div class="descripcion">
-            Tiempo de ejecución paralela (en segundos) por número de procesos y hilos, para 1000 pasos.
-        </div>
-    </div>
-
-    <div class="grafica">
-        <img src="graficasOpenMP+MPI/heatmap_tiempo_10000_pasos.png" alt="Heatmap Tiempo Paralelo - 10000 Pasos">
-        <div class="descripcion">
-            Tiempo de ejecución paralela (en segundos) por número de procesos y hilos, para 10000 pasos.
-        </div>
-    </div>
-
-    <div class="grafica">
-        <img src="graficasOpenMP+MPI/heatmap_tiempo_100000_pasos.png" alt="Heatmap Tiempo Paralelo - 100000 Pasos">
-        <div class="descripcion">
-            Tiempo de ejecución paralela (en segundos) por número de procesos y hilos, para 100000 pasos.
-        </div>
-    </div>
-
-    <!-- Heatmap Speedup -->
-    <div class="grafica">
-        <h2>2. Heatmap de Speedup por Procesos y Hilos</h2>
-        <img src="graficasOpenMP+MPI/heatmap_speedup_1000_pasos.png" alt="Heatmap Speedup - 1000 Pasos">
-        <div class="descripcion">
-            Speedup obtenido por número de procesos y hilos, para 1000 pasos.
-        </div>
-    </div>
-
-    <div class="grafica">
-        <img src="graficasOpenMP+MPI/heatmap_speedup_10000_pasos.png" alt="Heatmap Speedup - 10000 Pasos">
-        <div class="descripcion">
-            Speedup obtenido por número de procesos y hilos, para 10000 pasos.
-        </div>
-    </div>
-
-    <div class="grafica">
-        <img src="graficasOpenMP+MPI/heatmap_speedup_100000_pasos.png" alt="Heatmap Speedup - 100000 Pasos">
-        <div class="descripcion">
-            Speedup obtenido por número de procesos y hilos, para 100000 pasos.
-        </div>
-    </div>
+    <h1>Visualización de Resultados - Secuencial con MPI + OpenMP</h1>
 
     <!-- Gráfico de Error Absoluto en π -->
     <div class="grafica">
-        <h2>3. Error Absoluto en π vs Pasos</h2>
-        <img src="graficasOpenMP+MPI/error_pi_vs_pasos.png" alt="Error Absoluto en π vs Pasos">
+        <h2>Error Absoluto en π vs pasos</h2>
+        <img src="graficasOpenMP+MPI/error_pi_vs_pasos.png" alt="Error Absoluto en π vs pasos">
         <div class="descripcion">
             Diferencia entre el valor estimado de π y su valor real, analizada en función del número de pasos y total de hilos.
         </div>
     </div>
+
+    <div class="grafica">
+        <a class="back-button" href="graficas_speedup.html">Gráficas Speedup</a>
+        <a class="back-button" href="graficas_tiempo.html">Gráficas Tiempo</a>
+    </div>
+
 
     <a class="back-button" href="../index_secuencial.html">Volver</a>
     <a class="back-button" href="../../index.html">Volver al Inicio</a>

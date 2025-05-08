@@ -48,60 +48,20 @@
 
     <h1>Visualización de Resultados - Monte Carlo con MPI + OpenMP</h1>
 
-    <!-- Heatmap Tiempo Paralelo -->
-    <div class="grafica">
-        <h2>1. Heatmap de Tiempo Paralelo por Procesos y Hilos</h2>
-        <img src="graficasOpenMP+MPI/heatmap_tiempo_1000_muestras.png" alt="Heatmap Tiempo Paralelo - 1000 muestras">
-        <div class="descripcion">
-            Tiempo de ejecución paralela (en segundos) por número de procesos y hilos, para 1000 muestras.
-        </div>
-    </div>
-
-    <div class="grafica">
-        <img src="graficasOpenMP+MPI/heatmap_tiempo_10000_muestras.png" alt="Heatmap Tiempo Paralelo - 10000 muestras">
-        <div class="descripcion">
-            Tiempo de ejecución paralela (en segundos) por número de procesos y hilos, para 10000 muestras.
-        </div>
-    </div>
-
-    <div class="grafica">
-        <img src="graficasOpenMP+MPI/heatmap_tiempo_100000_muestras.png" alt="Heatmap Tiempo Paralelo - 100000 muestras">
-        <div class="descripcion">
-            Tiempo de ejecución paralela (en segundos) por número de procesos y hilos, para 100000 muestras.
-        </div>
-    </div>
-
-    <!-- Heatmap Speedup -->
-    <div class="grafica">
-        <h2>2. Heatmap de Speedup por Procesos y Hilos</h2>
-        <img src="graficasOpenMP+MPI/heatmap_speedup_1000_muestras.png" alt="Heatmap Speedup - 1000 muestras">
-        <div class="descripcion">
-            Speedup obtenido por número de procesos y hilos, para 1000 muestras.
-        </div>
-    </div>
-
-    <div class="grafica">
-        <img src="graficasOpenMP+MPI/heatmap_speedup_10000_muestras.png" alt="Heatmap Speedup - 10000 muestras">
-        <div class="descripcion">
-            Speedup obtenido por número de procesos y hilos, para 10000 muestras.
-        </div>
-    </div>
-
-    <div class="grafica">
-        <img src="graficasOpenMP+MPI/heatmap_speedup_100000_muestras.png" alt="Heatmap Speedup - 100000 muestras">
-        <div class="descripcion">
-            Speedup obtenido por número de procesos y hilos, para 100000 muestras.
-        </div>
-    </div>
-
     <!-- Gráfico de Error Absoluto en π -->
     <div class="grafica">
-        <h2>3. Error Absoluto en π vs muestras</h2>
+        <h2>Error Absoluto en π vs muestras</h2>
         <img src="graficasOpenMP+MPI/error_pi_vs_muestras.png" alt="Error Absoluto en π vs muestras">
         <div class="descripcion">
             Diferencia entre el valor estimado de π y su valor real, analizada en función del número de muestras y total de hilos.
         </div>
     </div>
+
+    <div class="grafica">
+        <a class="back-button" href="graficas_speedup.html">Gráficas Speedup</a>
+        <a class="back-button" href="graficas_tiempo.html">Gráficas Tiempo</a>
+    </div>
+
 
     <a class="back-button" href="../index_montecarlo.html">Volver</a>
     <a class="back-button" href="../../index.html">Volver al Inicio</a>

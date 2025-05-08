@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Resultados Montecarlo - MPI + OpenMP</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            color: #333;
+            margin: 0;
+            padding: 2rem;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .grafica {
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .descripcion {
+            font-style: italic;
+            color: #666;
+            margin-top: 0.5rem;
+        }
+
+        .back-button {
+            display: inline-block;
+            padding: 0.6rem 1.2rem;
+            background-color: #3498db;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: bold;
+            margin-top: 2rem;
+        }
+
+        .back-button:hover {
+            background-color: #2980b9;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Visualización de Resultados - Montecarlo con MPI + OpenMP</h1>
+
+    <!-- Heatmap tiempo -->
+    <div class="grafica">
+        <h2>Heatmap del tiempo por Procesos y Hilos</h2>
+        <img src="graficasOpenMP+MPI/heatmap_tiempo_1000_muestras.png" alt="Heatmap tiempo - 1000 muestras">
+        <div class="descripcion">
+            Tiempo obtenido por número de procesos y hilos, para 1000 muestras.
+        </div>
+    </div>
+
+    <div class="grafica">
+        <img src="graficasOpenMP+MPI/heatmap_tiempo_10000_muestras.png" alt="Heatmap tiempo - 10000 muestras">
+        <div class="descripcion">
+            Tiempo obtenido por número de procesos y hilos, para 10000 muestras.
+        </div>
+    </div>
+
+    <div class="grafica">
+        <img src="graficasOpenMP+MPI/heatmap_tiempo_100000_muestras.png" alt="Heatmap tiempo - 100000 muestras">
+        <div class="descripcion">
+            Tiempo obtenido por número de procesos y hilos, para 100000 muestras.
+        </div>
+    </div>
+
+    <div class="grafica">
+        <img src="graficasOpenMP+MPI/heatmap_tiempo_1000000_muestras.png" alt="Heatmap tiempo - 1000000 muestras">
+        <div class="descripcion">
+            Tiempo obtenido por número de procesos y hilos, para 1000000 muestras.
+        </div>
+    </div>
+
+    <div class="grafica">
+        <img src="graficasOpenMP+MPI/heatmap_tiempo_10000000_muestras.png" alt="Heatmap tiempo - 10000000 muestras">
+        <div class="descripcion">
+            Tiempo obtenido por número de procesos y hilos, para 10000000 muestras.
+        </div>
+    </div>
+
+    <a class="back-button" href="graficas.html">Volver</a>
+    <a class="back-button" href="/../../index.html">Volver al Inicio</a>
+
+</body>
+</html>
