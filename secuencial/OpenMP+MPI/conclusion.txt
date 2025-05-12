@@ -1,0 +1,38 @@
+ANÁLISIS OpenMP+MPI
+======================================
+
+## *** PUNTOS CRÍTICOS ***
+
+| Caso                  | Valor                  | Observación                   |
+|-----------------------|------------------------|-------------------------------|
+| Peor speedup          | 0.00 (1000, 16p 2h)    | Overhead extremo MPI+OpenMP   |
+| Mejor speedup         | 21.12 (10M, 20p 1h)    | Escalabilidad MPI pura        |
+| Speedup más realista  | 2.03 (1M, 2p 8h)       | Balance procesos-hilos        |
+| Mayor error (diff_pi) | 2.16e-01 (1000,16p 8h) | Error típico en muestras pequeñas |
+
+## *** RECOMENDACIONES POR TAMAÑO ***
+
+| Muestras    | Configuración Óptima  | Justificación                      |
+|-------------|-----------------------|------------------------------------|
+| ≤ 10k       | 1p 1h                 | Paralelismo contraproducente       |
+| 10k–100k    | 2-4p 2h               | Inicio escalabilidad MPI           |
+| 1M          | 4-8p 4h               | Máximo beneficio combinado         |
+| ≥ 10M       | 16-20p 1-2h           | Escalabilidad MPI dominante        |
+
+## *** CONCLUSIONES CLAVE ***
+
+| Hallazgo                        | Acción Requerida                     |
+|---------------------------------|--------------------------------------|
+| Speedup MPI > OpenMP en grandes | Priorizar procesos sobre hilos       |
+| Inestabilidad en config híbridas| Limitar hilos por proceso (2-4)      |
+| Error decrece con muestras      | Validar precisión en bajos recursos  |
+| Punto óptimo 4-8 procesos       | Balance comunicación-cómputo         |
+
+## *** ERRORES FRECUENTES ***
+
+| Escenario                      | Consecuencia                         |
+|--------------------------------|--------------------------------------|
+| Usar >4 hilos por proceso      | Contención memoria/overhead          |
+| Combinar muchos p+h en pequeños| Tiempos de ejecución erráticos       |
+| Ignorar balance carga MPI      | Speedup subóptimo en distribuciones  |
+| No aislar componentes          | Dificultad para diagnosticar cuellos |

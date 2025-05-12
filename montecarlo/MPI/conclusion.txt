@@ -1,0 +1,36 @@
+ANÁLISIS MPI
+============================================
+
+*** PUNTOS CRÍTICOS ***
+------------------------------------------------------------
+| Caso                  | Valor            | Observación    |
+------------------------------------------------------------
+| Peor speedup          | 0.01 (20 procs)  | 99% más lento  |
+| Mejor speedup         | 14.06 (16 procs) | Superlineal    |
+| Mayor error (diff_pi) | 0.036 (1k steps) | 3.6% error π   |
+| Inconsistencia serial | 3.4x diferencia  | Mediciones no confiables |
+
+*** RECOMENDACIONES POR TAMAÑO ***
+------------------------------------------------------------
+| Pasos      | Procesos Óptimos | Razón Principal          |
+------------------------------------------------------------
+| ≤ 10,000  | 1 (serie)        | Overhead comunicación    |
+| 10k-1M    | 8-16             | Balance cómputo/comunicación |
+| ≥ 1M      | 16-20            | Límite escalabilidad red |
+
+*** CONCLUSIONES CLAVE ***
+------------------------------------------------------------
+| Hallazgo               | Acción Requerida               |
+------------------------------------------------------------
+| Paralelizar pequeños = pérdida | Usar siempre versión serial |
+| Speedup no lineal      | No escalar más de 20 procs      |
+| Error alto en pocos pasos | Validar precisión si steps < 100k |
+| Tiempos seriales inconsistentes | Aislar mediciones         |
+
+*** ERRORES FRECUENTES ***
+------------------------------------------------------------
+| Escenario              | Consecuencia                   |
+------------------------------------------------------------
+| Paralelizar 1k pasos   | Hasta 100x más lento           |
+| Usar 20 procs en 10k   | Speedup < 3 (poco eficiente)    |
+| Ignorar diff_pi        | Resultados numéricamente inestables |

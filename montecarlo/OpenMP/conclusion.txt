@@ -1,0 +1,36 @@
+ANÁLISIS OPENMP
+============================================  
+
+*** PUNTOS CRÍTICOS ***  
+------------------------------------------------------------  
+| Caso                  | Valor              | Observación       |  
+------------------------------------------------------------  
+| Peor speedup          | 0.02 (20 hilos)    | 98% más lento     |  
+| Mayor error (diff_pi) | 0.036 (1k muestras) | 3.6% error π      |  
+| Inconsistencia serial | Speedup=1.82 (1 hilo) | Medición serial sospechosa |  
+| Mayor tiempo paralelo | 0.306s (20M muestras)| Paralelización ineficiente |  
+
+*** RECOMENDACIONES POR TAMAÑO ***  
+------------------------------------------------------------  
+| Muestras    | Hilos Óptimos | Razón Principal           |  
+------------------------------------------------------------  
+| ≤ 10k      | 1 (serie)      | Overhead hilos > ganancia |  
+| 10k-1M     | 2-4           | Evitar contención memoria  |  
+| ≥ 1M       | 4-8           | Límite escalabilidad OpenMP |  
+
+*** CONCLUSIONES CLAVE ***  
+------------------------------------------------------------  
+| Hallazgo               | Acción Requerida               |  
+------------------------------------------------------------  
+| Speedup < 1 en pequeños| Desactivar paralelismo         |  
+| Error π alto en 1k     | Revisar suma paralela (race conditions?) |  
+| Tiempos seriales extraños | Verificar código base       |  
+| Speedup decrece con hilos| Optimizar acceso a memoria   |  
+
+*** ERRORES FRECUENTES ***  
+------------------------------------------------------------  
+| Escenario              | Consecuencia                   |  
+------------------------------------------------------------  
+| Usar 20 hilos en 1k    | 50x más lento que serie        |  
+| Paralelizar loops pequeños | Pérdida de precisión numérica |  
+| Ignorar diff_pi        | Resultados inconsistentes      |  

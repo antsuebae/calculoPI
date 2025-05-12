@@ -1,0 +1,36 @@
+ANÁLISIS MPI
+============================================  
+
+*** PUNTOS CRÍTICOS ***  
+------------------------------------------------------------  
+| Caso                  | Valor                 | Observación              |  
+------------------------------------------------------------  
+| Peor speedup          | 0.02 (1000, 20 procs) | Muy ineficiente, alto overhead |  
+| Mejor speedup         | 12.00 (10M, 20 procs) | Excelente escalabilidad       |  
+| Inconsistencia serial | speedup = 1.33 (10k, 4 procs) | Tiempos serial poco confiables |  
+| Mayor error (diff_pi) | 1.35e-13 (1M, 2 procs) | Dentro de tolerancia numérica |  
+
+*** RECOMENDACIONES POR TAMAÑO ***  
+------------------------------------------------------------  
+| Muestras     | Procs Óptimos | Justificación               |  
+------------------------------------------------------------  
+| ≤ 10k        | 1             | Comunicación > Cómputo      |  
+| 10k–1M       | 4–8           | Balance entre escalabilidad y overhead |  
+| ≥ 1M         | 8–20          | Se escala muy bien, hasta 12x |  
+
+*** CONCLUSIONES CLAVE ***  
+------------------------------------------------------------  
+| Hallazgo                     | Acción Requerida                     |  
+------------------------------------------------------------  
+| Speedup < 1 (pequeños datos) | Ejecutar en serie o 2 procesos       |  
+| Speedup > 10 (10M datos)     | Confirmar distribución eficiente     |  
+| Fluctuaciones en 10k         | Verificar tiempos seriales/paralelos|  
+| Error π constante y bajo     | Implementación precisa numéricamente|  
+
+*** ERRORES FRECUENTES ***  
+------------------------------------------------------------  
+| Escenario                    | Consecuencia                         |  
+------------------------------------------------------------  
+| 20 procs en 1000 muestras    | Muy lento (speedup 0.02)             |  
+| Subestimar overhead en MPI   | Degradación importante en performance|  
+| Medir tiempo serial dudoso   | Speedups no confiables               |  

@@ -1,0 +1,37 @@
+ANÁLISIS OpenMP - RESUMEN TABULADO  
+============================================  
+
+*** PUNTOS CRÍTICOS ***  
+------------------------------------------------------------  
+| Caso                   | Valor                  | Observación                  |  
+------------------------------------------------------------  
+| Peor speedup           | 0.00 (1000, 16 hilos)  | Overhead > Beneficio         |  
+| Mejor speedup          | 1.58 (10M, 1 hilo)     | Base comparativa, no útil    |  
+| Speedup más realista   | 1.00 (1M, 2 hilos)     | Mejora válida                |  
+| Mayor error (diff_pi)  | 1.35e-13 (1M, 2 hilos) | Dentro de margen aceptable   |  
+
+*** RECOMENDACIONES POR TAMAÑO ***  
+------------------------------------------------------------  
+| Muestras     | Hilos Óptimos | Justificación                     |  
+------------------------------------------------------------  
+| ≤ 10k        | 1             | Overhead > paralelización          |  
+| 10k–100k     | 1–2           | Poco beneficio de más hilos        |  
+| 1M           | 2–4           | Mejora modesta                     |  
+| ≥ 10M        | 2–4           | Speedup decreciente con más hilos  |  
+
+*** CONCLUSIONES CLAVE ***  
+------------------------------------------------------------  
+| Hallazgo                       | Acción Requerida                     |  
+------------------------------------------------------------  
+| Speedup < 1 en la mayoría      | Evaluar costo-beneficio de hilos     |  
+| Máximo speedup bajo (≈1.6x)    | Limitación del modelo compartido     |  
+| Error en π estable y bajo      | Cálculo numérico confiable           |  
+| Hilos > 8 empeoran el tiempo   | Evitar más de 4–8 hilos en OpenMP    |  
+
+*** ERRORES FRECUENTES ***  
+------------------------------------------------------------  
+| Escenario                      | Consecuencia                         |  
+------------------------------------------------------------  
+| Usar muchos hilos con pocos pasos | Tiempo mayor que en serie         |  
+| Esperar alta escalabilidad en OpenMP | Resultados decepcionantes      |  
+| No medir con varios tamaños    | Conclusiones erróneas de rendimiento |  
