@@ -1,5 +1,7 @@
 #!/bin/bash
 
+cd "$(dirname "$0")"
+
 EXECUTABLE=pi_montecarlo_MPI
 OUTPUT_FILE="resultados_MPI.csv"
 

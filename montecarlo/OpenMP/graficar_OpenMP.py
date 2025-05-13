@@ -2,6 +2,10 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import os
 
+script_dir = os.path.dirname(__file__)
+
+os.chdir(script_dir)
+
 # Crear carpeta si no existe
 output_dir = "graficasOpenMP"
 os.makedirs("graficasOpenMP", exist_ok=True)

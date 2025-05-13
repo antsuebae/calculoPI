@@ -1,5 +1,7 @@
 #!/bin/bash
 
+cd "$(dirname "$0")"
+
 # Archivos
 SOURCE="pi_secuencial_OpenMP+MPI.c"
 EXEC="pi_secuencial_OpenMP+MPI"

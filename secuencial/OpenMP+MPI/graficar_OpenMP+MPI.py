@@ -2,6 +2,10 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import os
 
+script_dir = os.path.dirname(__file__)
+
+os.chdir(script_dir)
+
 # Configurar salida
 output_dir = "graficasOpenMP+MPI"
 os.makedirs(output_dir, exist_ok=True)
