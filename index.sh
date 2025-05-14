@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# Obtener el tiempo de inicio
+start_time=$(date +%s)
+
 # Obtener el directorio donde reside el script
 SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
 
@@ -51,6 +54,20 @@ cd ../OpenMP+MPI # Desde montecarlo/OpenMP, subimos a montecarlo/ y entramos a O
 python graficar_OpenMP+MPI.py
 echo "✅ Completado: Montecarlo OpenMP+MPI"
 
+# Obtener el tiempo de fin
+end_time=$(date +%s)
+
+# Calcular la duración total en segundos
+total_seconds=$((end_time - start_time))
+
+# Calcular minutos y segundos
+minutes=$((total_seconds / 60))
+seconds=$((total_seconds % 60))
+
 echo "----------------------------------------------------"
 echo "###¡PROCESO FINALIZADO!###"
 echo "----------------------------------------------------"
+
+# Mostrar el tiempo total transcurrido en formato minutos:segundos
+printf "Tiempo total transcurrido: %02d minutos %02d segundos.\n" "$minutes" "$seconds"
+
