@@ -52,8 +52,7 @@ El proyecto está organizado de la siguiente manera:
 │       ├── benchmarkOpenMP+MPI.sh
 │       ├── graficar_OpenMP+MPI.py
 │       └── ... (código fuente de la implementación OpenMP+MPI)
-└── README.md               # Este archivo
-└── conclusiones.txt         # Archivo con las conclusiones del estudio (si existe)
+└── README.md               
 ```
 
 *   `index.sh`: Orquesta la ejecución de todos los benchmarks y la posterior generación de gráficas.
